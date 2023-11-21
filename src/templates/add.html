@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+<p>Muutetaanko käyttäjän {{ name }} estoa?</p>
+<form action="/add" method="POST">
+    <input type="text" name="title"></p> Title
+    <input type="text"  name="author"></p> Author
+    <input type="text"  name="year"></p> Year published
+    <input type="text"  name="publisher"></p> Publisher
+    <input type='submit' value='Tallenna'>
+</form>
+{% endblock %}
