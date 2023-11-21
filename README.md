@@ -9,4 +9,10 @@ Linkki taulukkoon joka sisältää product backlogin (ja sprint backlogin):
 - kirjoittaja
 - julkaisuvuosi
 - julkaisija)
-  
+
+.env-tiedosto ohjeet kehittäjille:
+
+```
+DATABASE_URL=postgresql:///<postgres-käyttäjänimesi>
+SECRET_KEY=<numerosarja, esim. python-komennolla secrets.token_hex(16)>
+```
