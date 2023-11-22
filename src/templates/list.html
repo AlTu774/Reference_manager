@@ -1,3 +1,5 @@
+{% extends 'layout.html' %}
+{% block content %}
 <title>Lähdelista</title>
 {% for source in sources %}
 <li> {{ source.title }} </li>
@@ -6,3 +8,4 @@
 <li> {{ source.publisher }} </li>
 <br>
 {% endfor %}
+{% endblock %}
