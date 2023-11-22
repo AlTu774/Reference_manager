@@ -1,0 +1,8 @@
+<title>Lähdelista</title>
+{% for source in sources %}
+<li> {{ source.title }} </li>
+<li> {{ source.author }} </li>
+<li> {{ source.publish_year }} </li>
+<li> {{ source.publisher }} </li>
+<br>
+{% endfor %}
