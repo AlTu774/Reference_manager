@@ -12,7 +12,7 @@ def add():
     
     if request.method == "POST":
         return render_template("add.html")
-    
+
 @app.route("/list", methods=["GET"])
 def list_sources():
     return render_template("list.html")
