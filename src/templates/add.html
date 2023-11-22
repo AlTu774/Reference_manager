@@ -1,9 +1,10 @@
 {% extends 'layout.html' %}
 {% block content %}
 <form action="/add" method="POST">
+    Tag:<input type="text" name="tag"><br>
     Title:<input type="text" name="title"><br>
     Author:<input type="text"  name="author"><br>
-    Publishing year:<input type="text"  name="year"><br>
+    Publishing year:<input type="text"  name="publish_year"><br>
     Publisher:<input type="text"  name="publisher"><br>
     <input type='submit' value='Submit'><br>
 </form>
