@@ -1,6 +1,7 @@
 from flask import redirect, render_template, request
 from app import app
 from repositories import books_repository
+from services import source_service
 
 @app.route("/")
 def index():
@@ -17,7 +18,7 @@ def add():
         author = request.form["author"]
         publish_year = request.form["publish_year"]
         publisher = request.form["publisher"]
-        books_repository.insert_book(tag, title, author, publish_year, publisher)
+        source_service.insert_book(tag, title, author, publish_year, publisher, books_repository)
 
         return render_template("add.html")
 
