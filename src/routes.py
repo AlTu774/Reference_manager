@@ -1,7 +1,7 @@
 from flask import redirect, render_template, request
-from app import app
-from repositories import books_repository
-from services import source_service
+from src.app import app
+from src.repositories import books_repository
+from src.services import source_service
 
 @app.route("/")
 def index():
