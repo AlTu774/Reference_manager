@@ -1,6 +1,6 @@
 from entities.source import Source
 
-def insert_book(tag, title, author, publish_year, publisher, service):
+def insert_book(tag, title, author, publish_year, publisher, repository):
     new_book = Source(
         tag,
         title,
@@ -8,4 +8,4 @@ def insert_book(tag, title, author, publish_year, publisher, service):
         publish_year,
         publisher
     )
-    service.insert_book(new_book)
+    repository.insert_book(new_book)

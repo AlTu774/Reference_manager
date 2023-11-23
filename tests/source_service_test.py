@@ -1,7 +1,6 @@
 import unittest
-from services.source_service import (SourceService)
 from entities.source import Source
-
+from services import source_service
 
 class FakeBookRepository:
     def __init__(self):
@@ -16,18 +15,21 @@ class FakeBookRepository:
     
 class TestSourceService(unittest.TestCase):
     def setUp(self):
-        self._source_service = SourceService()
+        self.repo_stub = FakeBookRepository()
         self.book_jaana = Source("JK17", "Jaanan Kirja", "Jaana Virtanen", 1968, "Otava")
 
     def test_insert_book_stores_book_object_correctly(self):
-        self._source_service.create_book(self.book_jaana.tag,
+        source_service.insert_book(self.book_jaana.tag,
                     self.book_jaana.title,
                     self.book_jaana.author,
                     self.book_jaana.publish_year,
                     self.book_jaana.publisher,
-                    FakeBookRepository)
+                    self.repo_stub)
 
-        books = self._source_service.get_all_books(FakeBookRepository)
+        books = self.repo_stub.get_all_books()
 
         self.assertEqual(len(books), 1)
         self.assertEqual(books[0].tag, self.book_jaana.tag)
+        self.assertEqual(books[0].author, self.book_jaana.author)
+        self.assertEqual(books[0].publish_year, self.book_jaana.publish_year)
+        self.assertEqual(books[0].publisher, self.book_jaana.publisher)

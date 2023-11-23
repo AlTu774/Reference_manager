@@ -8,7 +8,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/add", methods=["GET", "POST"])
-def add():
+def add(inserter=source_service.insert_book):
     if request.method == "GET":
         return render_template("add.html")
     
@@ -18,7 +18,7 @@ def add():
         author = request.form["author"]
         publish_year = request.form["publish_year"]
         publisher = request.form["publisher"]
-        source_service.insert_book(tag, title, author, publish_year, publisher, books_repository)
+        inserter(tag, title, author, publish_year, publisher, books_repository)
 
         return render_template("add.html")
 
