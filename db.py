@@ -1,6 +1,6 @@
 from os import getenv, environ
 from flask_sqlalchemy import SQLAlchemy
-from src.app import app
+from app import app
 
 DATABASE_URL = environ.get("DATABASE_URL")
 DATABASE_URL = DATABASE_URL.replace('://', 'ql://', 1) \

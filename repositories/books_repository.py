@@ -1,5 +1,5 @@
 from sqlalchemy import text
-from src.db import db
+from db import db
 
 def insert_book(book):
     sql = """INSERT INTO books (tag, title, author, publish_year, publisher)
