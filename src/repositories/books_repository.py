@@ -9,5 +9,5 @@ def insert_book(book):
     db.session.commit()
 
 def get_books():
-    sql = """ SELECT id, tag, title, author, publish_year, publisher FROM books"""
+    sql = "SELECT id, tag, title, author, publish_year, publisher FROM books"
     return db.session.execute(text(sql)).fetchall()
