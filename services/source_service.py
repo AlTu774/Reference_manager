@@ -9,3 +9,7 @@ def insert_book(tag, title, author, publish_year, publisher, repository):
         publisher
     )
     repository.insert_book(new_book)
+    
+def get_books(repository):
+    books = repository.get_books()
+    return books

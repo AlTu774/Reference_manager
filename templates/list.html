@@ -2,10 +2,12 @@
 {% block content %}
 <title>Lähdelista</title>
 {% for source in sources %}
-<li> {{ source.title }} </li>
-<li> {{ source.author }} </li>
-<li> {{ source.publish_year }} </li>
-<li> {{ source.publisher }} </li>
-<br>
+<b>@{{ source.tag }}</b>
+<ul>
+<li>Title: {{ source.title }} </li>
+<li>Author: {{ source.author }} </li>
+<li>publish_year: {{ source.publish_year }} </li>
+<li>Publisher: {{ source.publisher }} </li>
+</ul>
 {% endfor %}
 {% endblock %}

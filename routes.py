@@ -24,4 +24,5 @@ def add(inserter=source_service.insert_book):
 
 @app.route("/list", methods=["GET"])
 def list_sources():
-    return render_template("list.html")
+    books = source_service.get_books(books_repository)
+    return render_template("list.html", sources=books)
