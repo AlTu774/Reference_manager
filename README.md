@@ -12,6 +12,7 @@ Linkki taulukkoon joka sisältää product backlogin (ja sprint backlogin):
 - Integroitu tuotantoversioon
 - Automaattiset regressiotestit menevät läpi
 - Toiminnallisuuden yksikkötestit menevät läpi
+- Käyttäjän hyväksymistesti suoritettu storylle
 
 (Ensin kirjan lisäys:
 - nimi
