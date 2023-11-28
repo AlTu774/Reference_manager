@@ -1,4 +1,4 @@
-from os import getenv, environ
+from os import environ
 from flask_sqlalchemy import SQLAlchemy
 from app import app
 
