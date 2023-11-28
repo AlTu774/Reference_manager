@@ -13,6 +13,7 @@ sqlalchemy = "^2.0.23"
 flask-sqlalchemy = "^3.1.1"
 gunicorn = "^21.2.0"
 psycopg2 = "^2.9.9"
+pybtex = "^0.24.0"
 
 
 [tool.poetry.group.dev.dependencies]
