@@ -1,0 +1,7 @@
+[MASTER]
+
+ignore = tests, __init__
+
+[FORMAT]
+
+max-line-length=80
