@@ -23,6 +23,5 @@ jobs:
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
       - name: Run pylint
-        run: poetry run pylint *.py
-      - name: Run pylint form folders
-        run: poetry run pylint **/*.py
+        run: poetry run pylint **/*.py *.py
+
