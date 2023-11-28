@@ -2,10 +2,10 @@
 {% block content %}
 <form action="/add" method="POST">
     Tag:<input type="text" name="tag"><br>
-    Title:<input type="text" name="title"><br>
-    Author:<input type="text"  name="author"><br>
-    Publishing year:<input type="text"  name="publish_year"><br>
-    Publisher:<input type="text"  name="publisher"><br>
+    Title:<input type="text" name="title" maxlength="70" required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br>
+    Author:<input type="text" name="author" maxlength="70" required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br>
+    Publishing year:<input type="number" name="publish_year" maxlength="4"><br>
+    Publisher:<input type="text" name="publisher" required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br>
     <input type='submit' value='Submit'><br>
 </form>
 {% endblock %}
