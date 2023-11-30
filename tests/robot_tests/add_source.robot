@@ -3,7 +3,7 @@ Resource  resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
 Test Setup  Go And Check Add Page
-Test Teardown  Reset Application
+#Test Teardown  Reset Application
 
 *** Test Cases ***
 Add Source With Valid Fields
@@ -53,6 +53,19 @@ Add Source With Whitespace
     Add Page Should Be Open
     ${error}  Get Element Attribute  id=title  title
     Should Be Equal  ${error}  Remove leading or trailing spaces
+
+Add Source With Invalid Year
+    Set Tag  JTKT1
+    Set Title  Johdatus Tietojenkäsittelyyn
+    Set Author  Matti Luukkainen
+    Set Publish Year  kaksi
+    Set Publisher  WSOY
+    Click Button  Submit
+
+    Add Page Should Be Open
+    ${error}  Get Element Attribute  id=publish_year  title
+    Should Be Equal  ${error}  Please enter a valid year
+
 
 *** Keywords ***
 Go and Check Add Page
