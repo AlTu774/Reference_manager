@@ -1,7 +1,12 @@
 [MASTER]
 
 ignore = tests, __init__
-
+disable=C0114, C0115, C0116
 [FORMAT]
 
 max-line-length=80
+
+[DESIGN]
+
+min-public-methods=0
+max-args=10
