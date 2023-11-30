@@ -16,3 +16,16 @@ class TestReferenceForm(unittest.TestCase):
         ))
 
         self.assertEqual(response.status_code, 200)
+
+    def test_form_submission_with_whitespace(self):
+        response = self.app.post("/add", data=dict(
+            tag="some tag",
+            title="  some title",
+            author="some author",
+            publish_year=2000,
+            publisher="some publiser"   
+
+        ))
+
+        self.assertIn(b"Remove leading or trailing spaces", response.data)
+        self.assertIn(b'required', response.data)
