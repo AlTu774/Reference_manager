@@ -42,6 +42,18 @@ Add Source With Missing Author
     Add Page Should Be Open
     Element Should Be Visible  css=input#author:required:invalid
 
+Add Source With Whitespace
+    Set Tag  JTKT1
+    Set Title  Johdatus Tietojenkäsittelyyn ${SPACE}
+    Set Author  Matti Luukkainen
+    Set Publish Year  2018
+    Set Publisher  WSOY
+    Click Button  Submit
+
+    Add Page Should Be Open
+    ${error}  Get Element Attribute  id=title  title
+    Should Be Equal  ${error}  Remove leading or trailing spaces
+
 *** Keywords ***
 Go and Check Add Page
     Go To Add Page
