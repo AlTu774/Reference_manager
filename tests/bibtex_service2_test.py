@@ -1,11 +1,12 @@
+from pybtex.database import BibliographyData, Entry
 import unittest
 from entities.source import Source
 from services.bibtex_service import Bibtex_Service
 
 class FakeBookRepository:
     def __init__(self):
-        self.books = [Source("JK17", "Jaanan Kirja", "Jaana Virtanen", 1968, "Otava"),
-        Source("K", "Joku Kirja", "Matti Mäkelä", 2000, "Otava")]
+        self.books = [{"tag":"JK17","author":"Jaana Virtanen","title":"Jaanan Kirja","publisher":"Otava", "year":1968},
+        {"tag":"K","author":"Matti Mäkelä","title":"Joku Kirja","publisher":"Otava", "year":2000}]
 
     def get_books(self):
         return self.books
@@ -15,25 +16,25 @@ class FakeBookRepository:
         return book
 
 class TestBibtex(unittest.TestCase):
-    def setUp:
+    def setUp(self):
         self.book_repo = FakeBookRepository()
-        self.bibtex_s = Bibtex_Service(self.repo)
+        self.bibtex_s = Bibtex_Service(self.book_repo)
     
     def test_create_entry_correctly(self):
-        source = Source("JK17", "Jaanan Kirja", "Jaana Virtanen", 1968, "Otava")
-        entry = self.bibtex_s.create_entry(source)
-        correct_entry = ("JK17",[("author", "Jaana Virtanen"),
+        source = {"tag":"JK17","author":"Jaana Virtanen","title":"Jaanan Kirja","publisher":"Otava", "year":1968}
+        entry = self.bibtex_s._create_entry(source)
+        correct_entry = Entry("book",[("author", "Jaana Virtanen"),
         ("title", "Jaanan Kirja"),
-        ("publisher","Jaana Virtanen"),
+        ("publisher","Otava"),
         ("year", "1968"),
         ])
         self.assertEqual(entry, correct_entry)
     
     def test_create_bibliographydata_correctly(self):
         data = self.bibtex_s.create_bibtex_data()
-        source1 = Source("JK17", "Jaanan Kirja", "Jaana Virtanen", 1968, "Otava")
-        source2 = Source("K", "Joku Kirja", "Matti Mäkelä", 2000, "Otava")
-        entry1 = self.bibtex_s.create_entry(source1)
-        entry2 = self.bibtex_s.create_entry(source2)
-        correct_data = ({"book":entry1, "book":entry2})
+        source1 = {"tag":"JK17","author":"Jaana Virtanen","title":"Jaanan Kirja","publisher":"Otava", "year":1968}
+        source2 = {"tag":"K","author":"Matti Mäkelä","title":"Joku Kirja","publisher":"Otava", "year":2000}
+        entry1 = self.bibtex_s._create_entry(source1)
+        entry2 = self.bibtex_s._create_entry(source2)
+        correct_data = BibliographyData({"JK17":entry1, "K":entry2})
         self.assertEqual(data, correct_data)
