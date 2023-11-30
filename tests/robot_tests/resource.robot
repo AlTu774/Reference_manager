@@ -1,6 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
-Library  ../../AppLibrary.py
+#Library  ../../AppLibrary.py
 
 *** Variables ***
 ${SERVER}  127.0.0.1:5000
