@@ -1,6 +1,10 @@
 .env
 __pycache__
 
+# Coverage
+.coverage
+htmlcove
+
 # Macbook ignores
 .DS_Store
 
