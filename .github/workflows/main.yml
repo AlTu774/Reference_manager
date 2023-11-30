@@ -12,7 +12,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:latest
+        image: postgres:13
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -21,9 +21,8 @@ jobs:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
-        env:
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432/test
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+env:
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
 
     steps:
@@ -38,11 +37,13 @@ jobs:
         run: poetry install
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
+        env:
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/test
       - name: Coverage report
         run: poetry run coverage xml
       - name: Coverage report to Codecov
         run: bash <(curl -s https://codecov.io/bash)
-      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: superfly/flyctl-actions/setup-flyctl@v1
         if: ${{ github.event_name == 'push' }}
       - run: poetry run flyctl deploy --remote-only
         if: ${{ github.event_name == 'push' }}
