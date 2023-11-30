@@ -11,3 +11,8 @@ def insert_book(book):
 def get_books():
     sql = "SELECT id, tag, title, author, publish_year, publisher FROM books"
     return db.session.execute(text(sql)).fetchall()
+
+def delete_all_books():
+    sql = "DELETE FROM books"
+    db.session.execute(text(sql))
+    db.session.commit()
