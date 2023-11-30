@@ -3,12 +3,13 @@
 <title>Uusi lähde</title>
 <form action="/add" method="POST">
     Tag:<input type="text" name="tag"><br>
-    Title:<input type="text" name="title" maxlength="70"
+    Title:<input type="text" name="title" id="title" maxlength="70"
     required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br>
-    Author:<input type="text" name="author" maxlength="70" 
+    Author:<input type="text" name="author" id="author" maxlength="70"
     required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br>
-    Publishing year:<input type="number" name="publish_year" maxlength="4"><br>
-    Publisher:<input type="text" name="publisher" 
+    Publishing year:<input type="number" name="publish_year" id="publish_year"
+    maxlength="4"><br>
+    Publisher:<input type="text" name="publisher" id="publisher"
     required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br>
     <input type='submit' value='Submit'><br>
 </form>
