@@ -15,6 +15,26 @@ Add Source With Valid Fields
     Click Link  Listaa lähteet
     List Page Should Be Open
 
+Add Source With Missing Title
+    Set Tag  JTKT1
+    Set Author  Matti Luukkainen
+    Set Publish Year  2018
+    Set Publisher  WSOY
+    Click Button  Submit
+
+    Add Page Should Be Open
+    Element Should Be Visible  css=input#title:required:invalid
+
+Add Source With Missing Author
+    Set Tag  JTKT1
+    Set Title  Johdatus Tietojenkäsittelyyn
+    Set Publish Year  2018
+    Set Publisher  WSOY
+    Click Button  Submit
+
+    Add Page Should Be Open
+    Element Should Be Visible  css=input#author:required:invalid
+
 *** Keywords ***
 Go and Check Add Page
     Go To Add Page
