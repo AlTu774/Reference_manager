@@ -26,3 +26,8 @@ def add(inserter=source_service.insert_book):
 def list_sources():
     books = source_service.get_books(books_repository)
     return render_template("list.html", sources=books)
+
+@app.route("/reset", methods=["GET"])
+def empty_sources():
+    source_service.delete_all_books(books_repository)
+    return redirect("/")
