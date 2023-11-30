@@ -1,6 +1,4 @@
 import unittest
-from entities.source import Source
-from services import source_service
 from services.bibtex_service import Bibtex_Service
 import os
 

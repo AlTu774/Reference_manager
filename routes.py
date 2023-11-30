@@ -1,7 +1,9 @@
-from flask import redirect, render_template, request
+from flask import redirect, render_template, request, send_from_directory
 from app import app
 from repositories import books_repository
 from services import source_service
+from services.bibtex_service import Bibtex_Service
+import os
 
 @app.route("/")
 def index():
@@ -26,3 +28,13 @@ def add(inserter=source_service.insert_book):
 def list_sources():
     books = source_service.get_books(books_repository)
     return render_template("list.html", sources=books)
+
+@app.route("/bibtex", methods=["GET"])
+def create_bibtex_file(bibtex_service = Bibtex_Service()):
+    bibtex_service.create_bibtex_file("references")
+    return render_template("bibtex.html")
+
+@app.route("/download", methods=["GET"])
+def download_bibtex_file():
+    upload = os.path.join(app.root_path, "bibtex_files")
+    return send_from_directory(upload, "references.bib")
