@@ -13,8 +13,8 @@ class Bibtex_Service:
             entries[source["tag"]] = self._create_entry(source)
         return BibliographyData(entries)
 
-    def create_bibtex_file(self):
-        self.create_bibtex_data().to_file('bibtex_files/references.bib', 'bibtex')
+    def create_bibtex_file(self, name):
+        self.create_bibtex_data().to_file(f"bibtex_files/{name}.bib", 'bibtex')
 
     def _create_entry(self, source):
         fields = []

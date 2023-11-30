@@ -2,6 +2,7 @@ import unittest
 from entities.source import Source
 from services import source_service
 from services.bibtex_service import Bibtex_Service
+import os
 
 class FakeSourceService:
     def __init__(self):
@@ -21,5 +22,7 @@ class TestSourceService(unittest.TestCase):
         self.service_stub = FakeSourceService()
         self.bibtex_service = Bibtex_Service(self.service_stub)
 
-    def test_service(self):
-        self.bibtex_service.create_bibtex_file()
+    def test_bibtex_file_is_created_service(self):
+        self.bibtex_service.create_bibtex_file("test")
+        self.assertEqual(os.path.exists('bibtex_files/test.bib'), True)
+        os.remove('bibtex_files/test.bib')
