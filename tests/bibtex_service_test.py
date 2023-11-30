@@ -3,21 +3,23 @@ from entities.source import Source
 from services import source_service
 from services.bibtex_service import Bibtex_Service
 
-class FakeBookRepository:
+class FakeSourceService:
     def __init__(self):
-        self.books = [Source("JK17", "Jaanan Kirja", "Jaana Virtanen", 1968, "Otava")]
-
+        self.books = [{
+            "tag":"JK17",
+            "title": "Jaanan Kirja",
+            "author": "Jaana Virtanen",
+            "publish_year": 1968,
+            "publisher": "Otava"
+        }]
+        
     def get_books(self):
         return self.books
-
-    def insert_book(self, book):
-        self.books.append(book)
-        return book
     
 class TestSourceService(unittest.TestCase):
     def setUp(self):
-        self.repo_stub = FakeBookRepository()
-        self.bibtex_service = Bibtex_Service(self.repo_stub)
+        self.service_stub = FakeSourceService()
+        self.bibtex_service = Bibtex_Service(self.service_stub)
 
     def test_service(self):
         self.bibtex_service.create_bibtex_file()
