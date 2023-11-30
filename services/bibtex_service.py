@@ -6,13 +6,15 @@ class Bibtex_Service:
     def __init__(self, service):
         self.source_service = service
 
-    def create_bibtex_file(self):
+    def create_bibtex_data(self):
         sources = self.source_service.get_books()
         entries = {}
         for source in sources:
             entries[source["tag"]] = self._create_entry(source)
-        data = BibliographyData(entries)
-        data.to_file('bibtex_files/references.bib', 'bibtex')
+        return BibliographyData(entries)
+
+    def create_bibtex_file(self):
+        self.create_bibtex_data().to_file('bibtex_files/references.bib', 'bibtex')
 
     def _create_entry(self, source):
         fields = []
