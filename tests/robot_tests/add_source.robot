@@ -16,6 +16,12 @@ Add Source With Valid Fields
     Click Link  Listaa lähteet
     List Page Should Be Open
 
+    Page Should Contain  @JTKT
+    Page Should Contain  Johdatus Tietojenkäsittelyyn
+    Page Should Contain  Matti Luukkainen
+    Page Should Contain  2018
+    Page Should Contain  WSOY
+
 Add Source With Missing Title
     Set Tag  JTKT1
     Set Author  Matti Luukkainen
