@@ -1,5 +1,17 @@
 .env
 __pycache__
 
+# Coverage
+.coverage
+htmlcove
+
 # Macbook ignores
 .DS_Store
+
+# Robot logs
+log.html
+output.xml
+report.html
+
+# selenium screenshots
+selenium-screenshot*
