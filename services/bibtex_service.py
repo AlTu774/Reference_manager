@@ -23,20 +23,3 @@ class Bibtex_Service:
                 continue
             fields.append((key, str(item)))
         return Entry('book', fields)
-
-
-'''
-testi = Entry('article', [
-    ('author', 'Sanna'),
-    ('title', 'terve'),
-    ('publisher', 'Otava'),
-    ('year', '1999')
-])
-
-bibtesti = BibliographyData({'testi' : testi})
-
-print(testi)
-print(bibtesti)
-
-bibtesti.to_file('test_file.bib', 'bibtex')
-'''
