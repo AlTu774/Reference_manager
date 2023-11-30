@@ -3,6 +3,7 @@ Resource  resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
 Test Setup  Go And Check Add Page
+Test Teardown  Reset Application
 
 *** Test Cases ***
 Add Source With Valid Fields
