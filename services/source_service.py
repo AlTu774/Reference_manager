@@ -14,3 +14,7 @@ def insert_book(tag, title, author, publish_year, publisher, repository):
 def get_books(repository = books_repository):
     books = repository.get_books()
     return books
+
+def delete_all_books(repository):
+    repository.delete_all_books()
+    return

@@ -7,8 +7,8 @@
     required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br>
     Author:<input type="text" name="author" id="author" maxlength="70"
     required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br>
-    Publishing year:<input type="number" name="publish_year" id="publish_year"
-    maxlength="4"><br>
+    Publishing year:<input type="text" name="publish_year" id="publish_year"
+    maxlength="4" required pattern="^[0-9]*$" title="Please enter a valid year"><br>
     Publisher:<input type="text" name="publisher" id="publisher"
     required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br>
     <input type='submit' value='Submit'><br>

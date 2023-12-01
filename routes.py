@@ -10,7 +10,6 @@ def index():
     return render_template("index.html")
 
 @app.route("/add", methods=["GET", "POST"])
-
 def add(service = source_service):
     if request.method == "GET":
         return render_template("add.html")
@@ -29,6 +28,11 @@ def add(service = source_service):
 def list_sources():
     books = source_service.get_books(books_repository)
     return render_template("list.html", sources=books)
+
+@app.route("/reset", methods=["GET"])
+def empty_sources():
+    source_service.delete_all_books(books_repository)
+    return redirect("/")
 
 @app.route("/bibtex", methods=["GET"])
 def create_bibtex_file(bibtex_service = bibtex_service):
