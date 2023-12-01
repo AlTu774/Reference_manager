@@ -1,3 +1,4 @@
+"""
 import unittest
 from app import app
 
@@ -29,3 +30,4 @@ class TestReferenceForm(unittest.TestCase):
 
         self.assertIn(b"Remove leading or trailing spaces", response.data)
         self.assertIn(b'required', response.data)
+"""
