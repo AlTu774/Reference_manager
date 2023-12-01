@@ -1,5 +1,6 @@
 # Lahdehallinta
 ![GHA workflow badge](https://github.com/AlTu774/Lahdehallinta/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/AlTu774/Lahdehallinta/graph/badge.svg?token=OSUNJZUSTT)](https://codecov.io/gh/AlTu774/Lahdehallinta)
 
 
 [Linkki sovellukseen](https://lahdehallintasovellus.fly.dev/)
@@ -13,12 +14,6 @@ Linkki taulukkoon joka sisältää product backlogin (ja sprint backlogin):
 - Automaattiset regressiotestit menevät läpi
 - Toiminnallisuuden yksikkötestit menevät läpi
 - Käyttäjän hyväksymistesti suoritettu storylle
-
-(Ensin kirjan lisäys:
-- nimi
-- kirjoittaja
-- julkaisuvuosi
-- julkaisija)
 
 .env-tiedosto ohjeet kehittäjille:
 
