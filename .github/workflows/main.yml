@@ -52,8 +52,3 @@ jobs:
         run: Flask run
       - name: Run end-to-end tests with Robot Framework
         run: poetry run robot tests/robot_tests
-      - uses: superfly/flyctl-actions/setup-flyctl@v1
-        if: ${{ github.event_name == 'push' }}
-      - run: poetry run flyctl deploy --remote-only
-        if: ${{ github.event_name == 'push' }}
-
