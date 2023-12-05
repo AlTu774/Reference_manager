@@ -49,6 +49,6 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Turn on app backend for Robot tests
-        run: Flask run
+        run: poetry run Flask run
       - name: Run end-to-end tests with Robot Framework
         run: poetry run robot tests/robot_tests
