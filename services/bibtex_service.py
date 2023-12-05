@@ -19,5 +19,6 @@ def create_entry(source):
         if key == "tag" or key == "id" or key == "publish_year":
             continue
         fields.append((key, str(item)))
-    fields.append(("year", str(source["publish_year"])))
+    if "publish_year" in source:
+        fields.append(("year", str(source["publish_year"])))
     return Entry('book', fields)
