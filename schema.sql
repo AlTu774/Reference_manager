@@ -8,3 +8,9 @@ CREATE TABLE Books (
     publish_year INT,
     publisher TEXT
 );
+
+CREATE TABLE Users (
+    id SERIAL PRIMARY KEY,
+    username TEXT,
+    password TEXT
+);
