@@ -49,7 +49,7 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Turn on app backend for Robot tests
-        uses: Flask run
+        run: Flask run
       - name: Run end-to-end tests with Robot Framework
         run: poetry run robot tests/robot_tests
       - uses: superfly/flyctl-actions/setup-flyctl@v1
