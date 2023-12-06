@@ -53,20 +53,20 @@ def register():
 @app.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "GET":
-        return render_template("login.htm")
+        return render_template("login.html")
     elif request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
         password2 = request.form["password2"]
         if password == password2:
             session[username] = username
-        return render_template("login.htm")
+        return render_template("login.html")
 
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
     if request.method == "GET":
-        return render_template("/register")
+        return render_template("register.html")
     if request.method == "POST": 
         username = request.form["username"]
         password = request.form["password"]
