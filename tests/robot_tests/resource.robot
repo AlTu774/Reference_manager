@@ -8,6 +8,10 @@ ${DELAY}  0 seconds
 ${HOME_URL}  http://${SERVER}
 ${ADD_URL}  http://${SERVER}/add
 ${LIST_URL}  http://${SERVER}/list
+${REGISTER_URL}  http://${SERVER}/register
+${LOGOUT_URL}  http://${SERVER}/logout
+${LOGIN_URL}  http://${SERVER}/login
+${DELETE_URL}  http://${SERVER}/reset_users
 
 *** Keywords ***
 
@@ -32,3 +36,21 @@ Go To Add Page
 
 Go To List Page
     Go To  ${LIST_URL}
+
+Go To Register Page
+    Go To  ${REGISTER_URL}
+
+Go To Logout Page
+    Go To  ${LOGOUT_URL}
+
+Go To Login Page
+    Go To  ${LOGIN_URL}
+
+Delete All Users
+    Go To  ${DELETE_URL}
+
+Index Page Should Be Open
+    Title Should Be  Reference manager
+
+Register Page Should Be Open
+    Title Should Be  Register

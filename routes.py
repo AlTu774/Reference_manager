@@ -39,6 +39,12 @@ def empty_sources():
     source_service.delete_all_books(books_repository)
     return redirect("/")
 
+@app.route("/reset_users", methods=["GET"])
+def reset_users():
+    users_repository.delete_all_users()
+    return redirect("/")
+
+
 @app.route("/bibtex", methods=["GET"])
 def create_bibtex_file(service = bibtex_service):
     service.create_bibtex_file("references", source_service)
