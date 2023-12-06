@@ -8,6 +8,7 @@ ${DELAY}  0 seconds
 ${HOME_URL}  http://${SERVER}
 ${ADD_URL}  http://${SERVER}/add
 ${LIST_URL}  http://${SERVER}/list
+${REGISTER_URL} http://${SERVER}/register
 
 *** Keywords ***
 
@@ -32,3 +33,6 @@ Go To Add Page
 
 Go To List Page
     Go To  ${LIST_URL}
+
+Go To Register Page
+    Go To ${REGISTER_URL}
