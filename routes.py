@@ -1,6 +1,6 @@
 from flask import redirect, render_template, request, send_from_directory, session
 from app import app
-from repositories import books_repository
+from repositories import books_repository, users_repository
 from services import source_service
 from services import bibtex_service
 import os
@@ -45,32 +45,44 @@ def download_bibtex_file():
     upload = os.path.join(app.root_path, "bibtex_files")
     return send_from_directory(upload, "references.bib")
 
-"""@app.route("/register")
-def register():
-    return render_template("register.html")
-"""
-
 @app.route("/login", methods=["POST", "GET"])
 def login():
+    error = None
     if request.method == "GET":
         return render_template("login.html")
+    
     elif request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        password2 = request.form["password2"]
-        if password == password2:
+
+        login_check = users_repository.login(username, password)
+        if login_check is True:
             session[username] = username
-        return render_template("login.html")
+            return redirect("/")
+        else:
+            error = login_check
+            return render_template("login.html", error=error)
 
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
+    error = None
+
     if request.method == "GET":
-        return render_template("register.html")
-    if request.method == "POST": 
+        return render_template("register.html", error=error)
+    
+    if request.method == "POST":
+        all_usernames = users_repository.get_all_usernames()
         username = request.form["username"]
         password = request.form["password"]
         password2 = request.form["password2"]
-        if password == password2:
-            session[username] = username
-        return redirect("/")
+        if username in all_usernames:
+            error = "Username has already been taken"
+        elif password != password2:
+            error = "Passwords do not match"
+        else:
+            users_repository.register(username, password)
+            session["username"] = username
+            return redirect("/")
+    
+    return render_template("register.html", error=error)
