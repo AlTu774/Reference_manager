@@ -1,4 +1,4 @@
-import requests
+import requests #pylint: disable=import-error
 
 class AppLibrary:
     def __init__(self):
@@ -8,4 +8,3 @@ class AppLibrary:
 
     def reset_application(self):
         requests.post(f"{self._base_url}/reset")
-

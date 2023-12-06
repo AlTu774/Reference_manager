@@ -1,6 +1,6 @@
+import os
 import unittest
 from services import bibtex_service
-import os
 
 class FakeSourceService:
     def __init__(self):
@@ -11,10 +11,10 @@ class FakeSourceService:
             "publish_year": 1968,
             "publisher": "Otava"
         }]
-        
+
     def get_books(self):
         return self.books
-    
+
 class TestBibtexService(unittest.TestCase):
     def setUp(self):
         self.service_stub = FakeSourceService()
