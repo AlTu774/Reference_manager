@@ -7,5 +7,11 @@
     Username:<input type="text" name="username" id="username" maxlength="20" 
     minlength="3"></input><br>
     Password:<input type="password" minlength="6" name="password"></input><br>
+    <input type="submit" value="Login">
 </form>
+
+{%  if  error %}
+<p> <b>Error:</b> {{error}}</p>
+{% endif %} 
+
 {% endblock %}

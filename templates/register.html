@@ -8,5 +8,11 @@
     minlength="3"></input><br>
     Password:<input type="password" minlength="6" name="password"></input><br>
     Repeat password: <input type="password" minlength="6" name="password2"></input><br>
+    <input type="submit" value="Register"></input>
 </form>
+
+{%  if  error %}
+<p> <b>Error:</b> {{error}}</p>
+{% endif %}
+
 {% endblock %}
