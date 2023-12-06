@@ -2,7 +2,8 @@ import os
 from flask import (
     redirect, render_template, request, send_from_directory, session)
 from app import app
-from repositories import books_repository, users_repository
+from repositories import books_repository
+from repositories import users_repository
 from services import source_service
 from services import bibtex_service
 
