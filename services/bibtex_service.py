@@ -4,8 +4,8 @@ def create_bibtex_data(source_service):
     sources = source_service.get_books()
     entries = {}
     for source in sources:
-        if type(source) != dict:
-            source = source._mapping
+        if not isinstance(source, dict):
+            source = source._mapping # pylint: disable=protected-access
         entries[source["tag"]] = create_entry(source)
     return BibliographyData(entries)
 
@@ -16,7 +16,7 @@ def create_bibtex_file(name, source_service):
 def create_entry(source):
     fields = []
     for key, item in source.items():
-        if key == "tag" or key == "id" or key == "publish_year":
+        if key in ["tag", "id", "publish_year"]:
             continue
         fields.append((key, str(item)))
     if "publish_year" in source:
