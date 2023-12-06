@@ -1,6 +1,7 @@
 from sqlalchemy import text
-from db import db
 from werkzeug.security import check_password_hash, generate_password_hash
+from db import db
+
 
 
 def register(username, password):
@@ -17,16 +18,14 @@ def login(username, password):
 
     if not user:
         return "Invalid username"
-    
+
     hash_value = user.password
 
     if not check_password_hash(hash_value, password):
         return "Invalid password"
-    else:
-        return True
-    
+    return True
+
 def get_all_usernames():
     sql = "SELECT username FROM Users"
     result = db.session.execute(text(sql))
     return [row[0] for row in result.fetchall()]
-    

@@ -1,9 +1,11 @@
-from flask import redirect, render_template, request, send_from_directory, session
+import os
+from flask import (
+    redirect, render_template, request, send_from_directory, session)
 from app import app
 from repositories import books_repository, users_repository
 from services import source_service
 from services import bibtex_service
-import os
+
 
 
 @app.route("/")
@@ -14,16 +16,17 @@ def index():
 def add(service = source_service):
     if request.method == "GET":
         return render_template("add.html")
-    
+
     if request.method == "POST":
         tag = request.form["tag"]
         title = request.form["title"]
         author = request.form["author"]
         publish_year = request.form["publish_year"]
         publisher = request.form["publisher"]
-        source_service.insert_book(tag, title, author, publish_year, publisher, books_repository)
+        service.insert_book(tag, title, author,
+                                   publish_year, publisher, books_repository)
 
-        return render_template("add.html")
+    return render_template("add.html")
 
 @app.route("/list", methods=["GET"])
 def list_sources():
@@ -36,8 +39,8 @@ def empty_sources():
     return redirect("/")
 
 @app.route("/bibtex", methods=["GET"])
-def create_bibtex_file(bibtex_service = bibtex_service):
-    bibtex_service.create_bibtex_file("references", source_service)
+def create_bibtex_file(service = bibtex_service):
+    service.create_bibtex_file("references", source_service)
     return render_template("bibtex.html")
 
 @app.route("/download", methods=["GET"])
@@ -50,8 +53,8 @@ def login():
     error = None
     if request.method == "GET":
         return render_template("login.html")
-    
-    elif request.method == "POST":
+
+    if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
 
@@ -59,9 +62,9 @@ def login():
         if login_check is True:
             session[username] = username
             return redirect("/")
-        else:
-            error = login_check
-            return render_template("login.html", error=error)
+
+    error = login_check
+    return render_template("login.html", error=error)
 
 
 @app.route("/register", methods=["POST", "GET"])
@@ -70,7 +73,7 @@ def register():
 
     if request.method == "GET":
         return render_template("register.html", error=error)
-    
+
     if request.method == "POST":
         all_usernames = users_repository.get_all_usernames()
         username = request.form["username"]
@@ -84,5 +87,5 @@ def register():
             users_repository.register(username, password)
             session["username"] = username
             return redirect("/")
-    
+
     return render_template("register.html", error=error)
