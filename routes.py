@@ -1,9 +1,10 @@
-from flask import redirect, render_template, request, send_from_directory
+from flask import redirect, render_template, request, send_from_directory, session
 from app import app
 from repositories import books_repository
 from services import source_service
 from services import bibtex_service
 import os
+
 
 @app.route("/")
 def index():
@@ -43,3 +44,33 @@ def create_bibtex_file(bibtex_service = bibtex_service):
 def download_bibtex_file():
     upload = os.path.join(app.root_path, "bibtex_files")
     return send_from_directory(upload, "references.bib")
+
+"""@app.route("/register")
+def register():
+    return render_template("register.html")
+"""
+
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    if request.method == "GET":
+        return render_template("login.htm")
+    elif request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        password2 = request.form["password2"]
+        if password == password2:
+            session[username] = username
+        return render_template("login.htm")
+
+
+@app.route("/register", methods=["POST", "GET"])
+def register():
+    if request.method == "GET":
+        return render_template("/register")
+    if request.method == "POST": 
+        username = request.form["username"]
+        password = request.form["password"]
+        password2 = request.form["password2"]
+        if password == password2:
+            session[username] = username
+        return redirect("/")
