@@ -11,6 +11,7 @@ ${LIST_URL}  http://${SERVER}/list
 ${REGISTER_URL}  http://${SERVER}/register
 ${LOGOUT_URL}  http://${SERVER}/logout
 ${LOGIN_URL}  http://${SERVER}/login
+${DELETE_URL}  http://${SERVER}/reset_users
 
 *** Keywords ***
 
@@ -44,6 +45,9 @@ Go To Logout Page
 
 Go To Login Page
     Go To  ${LOGIN_URL}
+
+Delete All Users
+    Go To  ${DELETE_URL}
 
 Index Page Should Be Open
     Title Should Be  Reference manager

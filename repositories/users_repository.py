@@ -29,3 +29,8 @@ def get_all_usernames():
     sql = "SELECT username FROM Users"
     result = db.session.execute(text(sql))
     return [row[0] for row in result.fetchall()]
+
+def delete_all_users():
+    sql = "DELETE FROM Users"
+    db.session.execute(text(sql))
+    db.session.commit()

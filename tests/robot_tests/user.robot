@@ -5,13 +5,6 @@ Suite Teardown  Close Browser
 Test Setup  Create User And Go To Register Page
 
 *** Test Cases ***
-Register New User
-    Go To Register Page
-    Write Username  user223
-    Write Password1  password123
-    Write Password2  password123
-    Click Button  Register
-    Index Page Should Be Open
 
 Can't Register With Existing Username
     Go To Register Page
@@ -50,6 +43,15 @@ Can't Login With Wrong Password
     Write Password1  password
     Click Button  Register
     Register Page Should Be Open
+
+Register New User
+    Delete All Users
+    Go To Register Page
+    Write Username  user2233
+    Write Password1  password123
+    Write Password2  password123
+    Click Button  Register
+    Index Page Should Be Open
 
 *** Keywords ***
 Create User And Go To Register Page
