@@ -21,4 +21,4 @@ pgclient.query(text, (err, res) => {
     if (err) throw err
 });
 
-pgclient.end()
+pgclient.end();
