@@ -53,4 +53,3 @@ jobs:
         env:
             BROWSER: firefox
             ROBOT_TESTS_DIR: ${{ github.workspace }}/tests/robot_tests
-            ROBOT_REPORTS_DIR: ${{ github.workspace }}/tests/reports
