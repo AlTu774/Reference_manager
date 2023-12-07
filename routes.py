@@ -67,6 +67,11 @@ def login():
     error = login_check
     return render_template("login.html", error=error)
 
+@app.route("/logout")
+def logout():
+    del session["username"]
+    return redirect("/")
+
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
