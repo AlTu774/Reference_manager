@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/AlTu774/Lahdehallinta/graph/badge.svg?token=OSUNJZUSTT)](https://codecov.io/gh/AlTu774/Lahdehallinta)
 
 
-[Linkki sovellukseen](https://lahdehallintasovellus.fly.dev/)
+[Link to the application](https://lahdehallintasovellus.fly.dev/)
 ## Product backlog
 Link to the product backlog (and sprint backlog):
 [Product backlog/Sprint backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/mseppi_ad_helsinki_fi/EQIaYfH__HREsC9fgOU2kWkBzfAX5RP9uAoUaCY_Hi62qg)
