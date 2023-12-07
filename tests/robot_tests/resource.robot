@@ -22,10 +22,10 @@ Open And Configure Browser
     Set Selenium Speed  ${DELAY}
 
 Add Page Should Be Open
-    Title Should Be  Uusi lähde
+    Title Should Be  New reference
 
 List Page Should Be Open
-    Title Should Be  Lähdelista
+    Title Should Be  List of references
 
 Go To Add Page
     Go To  ${ADD_URL}
