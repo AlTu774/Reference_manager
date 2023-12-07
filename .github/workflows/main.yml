@@ -51,7 +51,9 @@ jobs:
       - name: Install PostgreSQL client
         run: sudo apt-get install postgresql-client
       - name: Initialize database
-        run: psql -h localhost -U postgres -d test -f schema.sql
+        run: psql -h localhost -U postgres -d test -f schema.sql -W
+        env:
+          POSTGRES_PASSWORD: postgres
       - name: Activate Flask and keep it on
         run: poetry run flask run &
       - name: Run end-to-end tests with Robot Framework
