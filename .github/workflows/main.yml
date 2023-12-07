@@ -48,8 +48,15 @@ jobs:
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Install PostgreSQL client
+        run: sudo apt-get install postgresql-client
+      - name: Initialize database
+        run: PGPASSWORD=postgres psql -h localhost -U postgres -d test -f schema.sql
+      - name: Activate Flask and keep it on
+        run: poetry run flask run &
+      - name: Run end-to-end tests with Robot Framework
+        run: poetry run robot tests
       - uses: superfly/flyctl-actions/setup-flyctl@v1
         if: ${{ github.event_name == 'push' }}
       - run: poetry run flyctl deploy --remote-only
         if: ${{ github.event_name == 'push' }}
-
