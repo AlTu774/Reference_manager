@@ -41,7 +41,7 @@ jobs:
       - name: Run end-to-end tests with Robot Framework
         uses: joonvena/robotframework-docker-action@v0.1
         env:
-            BROWSER: chrome
+            BROWSER: firefox
             ROBOT_TESTS_DIR: ${{ github.workspace }}/tests/robot_tests
       - name: deactivate poetry
         run: exit

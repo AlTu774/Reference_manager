@@ -15,8 +15,8 @@ ${LIST_URL}  http://${SERVER}/list
 #   to use corresponding browser for tests.
 # Headless option disables physical browser opening.
 Open And Configure Browser
-    ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
-    #${options}  Evaluate  sys.modules['selenium.webdriver'].FirefoxOptions()  sys
+    #${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
+    ${options}  Evaluate  sys.modules['selenium.webdriver'].FirefoxOptions()  sys
     Call Method  ${options}  add_argument  --headless
     Open Browser  browser=chrome  options=${options}
     Set Selenium Speed  ${DELAY}
