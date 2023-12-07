@@ -48,6 +48,8 @@ jobs:
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Initialize database from schema.sql
+        run: poetry run psql < schema.sql
       - name: Activate Flask and keep it on
         run: poetry run flask run &
       - name: Run end-to-end tests with Robot Framework
