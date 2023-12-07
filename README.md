@@ -1,23 +1,23 @@
-# Lahdehallinta
+# Reference manager
 ![GHA workflow badge](https://github.com/AlTu774/Lahdehallinta/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/AlTu774/Lahdehallinta/graph/badge.svg?token=OSUNJZUSTT)](https://codecov.io/gh/AlTu774/Lahdehallinta)
 
 
 [Linkki sovellukseen](https://lahdehallintasovellus.fly.dev/)
 ## Product backlog
-Linkki taulukkoon joka sisältää product backlogin (ja sprint backlogin):
+Link to the product backlog (and sprint backlog):
 [Product backlog/Sprint backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/mseppi_ad_helsinki_fi/EQIaYfH__HREsC9fgOU2kWkBzfAX5RP9uAoUaCY_Hi62qg)
 
 ## Definition of done
-- Hyväksymiskriteerit saavutettu
-- Integroitu tuotantoversioon
-- Automaattiset regressiotestit menevät läpi
-- Toiminnallisuuden yksikkötestit menevät läpi
-- Käyttäjän hyväksymistesti suoritettu storylle
+- Acceptance criteria met
+- Integrated into the production version
+- Automated regression tests pass
+- Unit tests for functionality pass
+- User acceptance test conducted for the story
 
-.env-tiedosto ohjeet kehittäjille:
+.env file instructions for developers:
 
 ```
-DATABASE_URL=postgresql:///<postgres-käyttäjänimesi>
-SECRET_KEY=<numerosarja, esim. python-komennolla secrets.token_hex(16)>
+DATABASE_URL=postgresql:///<postgres-username>
+SECRET_KEY=<number series, e.g. with a Python command secrets.token_hex(16)>
 ```
