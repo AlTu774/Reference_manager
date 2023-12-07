@@ -13,7 +13,7 @@ Add Source With Valid Fields
     Set Publish Year  2018
     Set Publisher  WSOY
     Click Button  Submit
-    Click Link  Listaa lähteet
+    Click Link  List all references
     List Page Should Be Open
 
     Page Should Contain  @JTKT

@@ -12,11 +12,12 @@ class FakeBookRepository:
     def insert_book(self, book):
         self.books.append(book)
         return book
-    
+
 class TestSourceService(unittest.TestCase):
     def setUp(self):
         self.repo_stub = FakeBookRepository()
-        self.book_jaana = Source("JK17", "Jaanan Kirja", "Jaana Virtanen", 1968, "Otava")
+        self.book_jaana = Source("JK17", "Jaanan Kirja",
+                                  "Jaana Virtanen", 1968, "Otava")
 
     def test_insert_book_stores_book_object_correctly(self):
         source_service.insert_book(self.book_jaana.tag,
@@ -37,7 +38,7 @@ class TestSourceService(unittest.TestCase):
     def test_get_books_returns_correct_list(self):
         self.repo_stub.books.append(self.book_jaana)
         books = source_service.get_books(self.repo_stub)
-        
+
         self.assertEqual(len(books), 1)
         self.assertEqual(books[0].tag, self.book_jaana.tag)
         self.assertEqual(books[0].author, self.book_jaana.author)
