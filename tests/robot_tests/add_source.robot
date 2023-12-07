@@ -13,6 +13,8 @@ Add Source With Valid Fields
     Set Publish Year  2018
     Set Publisher  WSOY
     Click Button  Submit
+    Add Page Should Be Open
+
     Click Link  List all references
     List Page Should Be Open
 
