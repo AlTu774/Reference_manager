@@ -61,7 +61,7 @@ def login():
 
         login_check = users_repository.login(username, password)
         if login_check is True:
-            session[username] = username
+            session["username"] = username
             return redirect("/")
 
     error = login_check
