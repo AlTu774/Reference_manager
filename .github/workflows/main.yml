@@ -36,6 +36,8 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
+      - name: Install pg
+        run: npm install pg
       - name: Connect to PostgreSQL
         run: node client.js
         env:
