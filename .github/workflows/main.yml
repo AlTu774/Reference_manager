@@ -36,13 +36,6 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
-      - name: Install pg
-        run: npm install pg
-      - name: Connect to PostgreSQL
-        run: node client.js &
-        env:
-          POSTGRES_HOST: localhost
-          POSTGRES_PORT: 5432
       - name: Check pylint
         run: poetry run pylint **/*.py *.py
       - name: Run tests
