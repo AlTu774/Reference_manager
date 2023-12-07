@@ -1,5 +1,4 @@
 from entities.source import Source
-from repositories import books_repository
 
 def insert_book(tag, title, author, publish_year, publisher, repository):
     new_book = Source(
@@ -11,7 +10,7 @@ def insert_book(tag, title, author, publish_year, publisher, repository):
     )
     repository.insert_book(new_book)
 
-def get_books(repository = books_repository):
+def get_books(repository):
     books = repository.get_books()
     return books
 
