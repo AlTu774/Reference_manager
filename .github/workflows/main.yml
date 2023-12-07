@@ -38,8 +38,8 @@ jobs:
         run: poetry install
       - name: Install PostgreSQL client
         run: |
-          apt-get update
-          apt-get install --yes postgresql-client
+        sudo apt-get update
+        sudo apt-get install --yes postgresql-client
       - name: Check pylint
         run: poetry run pylint **/*.py *.py
       - name: Run tests
