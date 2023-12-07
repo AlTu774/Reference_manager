@@ -17,6 +17,6 @@ pgclient.query(table, (err, res) => {
     if (err) throw err
 });
 
-pgclient.query(text, values, (err, res) => {
+pgclient.query(text, (err, res) => {
     if (err) throw err
 });
