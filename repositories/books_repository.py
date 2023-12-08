@@ -2,8 +2,8 @@ from sqlalchemy import text
 from db import db
 
 def insert_book(book, user_id):
-    sql = """INSERT INTO books (tag, title, author, publish_year, publisher)
-        VALUES (:tag, :title, :author, :publish_year, :publisher)"""
+    sql = """INSERT INTO books (tag, title, author, publish_year, publisher, user_id)
+        VALUES (:tag, :title, :author, :publish_year, :publisher, :user_id)"""
     db.session.execute(text(sql), {"tag":book.tag,
                                     "title":book.title,
                                     "author":book.author,
