@@ -2,11 +2,7 @@ name: CI
 
 on:
   push:
-<<<<<<< HEAD
     branches: [main, robot_fix]
-=======
-    branches: [main, robot_CI, login_view]
->>>>>>> login_view
   pull_request:
     branches: [main]
 
