@@ -25,18 +25,19 @@ def add(service = source_service):
         publish_year = request.form["publish_year"]
         publisher = request.form["publisher"]
         service.insert_book(tag, title, author,
-                                   publish_year, publisher, books_repository)
+                                   publish_year, publisher, books_repository,
+                                   session["user_id"])
 
     return render_template("add.html")
 
 @app.route("/list", methods=["GET"])
 def list_sources():
-    books = source_service.get_books(books_repository)
+    books = source_service.get_books(books_repository, session["user_id"])
     return render_template("list.html", sources=books)
 
 @app.route("/reset", methods=["GET"])
 def empty_sources():
-    source_service.delete_all_books(books_repository)
+    source_service.delete_my_books(books_repository, session["user_id"])
     return redirect("/")
 
 @app.route("/reset_users", methods=["GET"])
@@ -47,7 +48,7 @@ def reset_users():
 
 @app.route("/bibtex", methods=["GET"])
 def create_bibtex_file(service = bibtex_service):
-    service.create_bibtex_file("references", books_repository)
+    service.create_bibtex_file("references", source_service, books_repository)
     return render_template("bibtex.html")
 
 @app.route("/download", methods=["GET"])
@@ -66,8 +67,10 @@ def login():
         password = request.form["password"]
 
         login_check = users_repository.login(username, password)
-        if login_check is True:
+        print(login_check)
+        if type(login_check) != str:
             session["username"] = username
+            session["user_id"] = login_check
             return redirect("/")
 
     error = login_check
@@ -97,7 +100,16 @@ def register():
             error = "Passwords do not match"
         else:
             users_repository.register(username, password)
+            user_id = users_repository.login(username, password)
             session["username"] = username
+            session["user_id"] = user_id
             return redirect("/")
 
     return render_template("register.html", error=error)
+
+@app.route("/logout")
+def logout():
+    del session["username"]
+    del session["user_id"]
+    
+    return redirect("/")

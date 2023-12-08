@@ -1,7 +1,7 @@
 from pybtex.database import BibliographyData, Entry
 
-def create_bibtex_data(source_service):
-    sources = source_service.get_books()
+def create_bibtex_data(source_service, repository):
+    sources = source_service.get_books(repository)
     entries = {}
     for source in sources:
         if not isinstance(source, dict):
@@ -9,8 +9,8 @@ def create_bibtex_data(source_service):
         entries[source["tag"]] = create_entry(source)
     return BibliographyData(entries)
 
-def create_bibtex_file(name, source_service):
-    create_bibtex_data(source_service).to_file(
+def create_bibtex_file(name, source_service, repository):
+    create_bibtex_data(source_service, repository).to_file(
         f"bibtex_files/{name}.bib", 'bibtex')
 
 def create_entry(source):

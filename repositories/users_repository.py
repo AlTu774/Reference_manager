@@ -23,7 +23,7 @@ def login(username, password):
 
     if not check_password_hash(hash_value, password):
         return "Invalid password"
-    return True
+    return user.id
 
 def get_all_usernames():
     sql = "SELECT username FROM Users"
