@@ -67,11 +67,16 @@ def login():
 
         login_check = users_repository.login(username, password)
         if login_check is True:
-            session[username] = username
+            session["username"] = username
             return redirect("/")
 
     error = login_check
     return render_template("login.html", error=error)
+
+@app.route("/logout")
+def logout():
+    del session["username"]
+    return redirect("/")
 
 
 @app.route("/register", methods=["POST", "GET"])

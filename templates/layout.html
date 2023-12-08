@@ -2,7 +2,13 @@
 <a href='/'>Home</a> |
 <a href='/add'>Add references</a> |
 <a href='/list'>List all references</a> |
+
+{% if session.username %}
+<a href='/logout'>Log out</a>
+{% else %}
 <a href='/register'>Register</a> |
 <a href='/login'>Login</a>
+{% endif %}
 <hr>
+
 {% block content %}{% endblock %}
