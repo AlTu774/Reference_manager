@@ -21,3 +21,4 @@ Link to the product backlog (and sprint backlog):
 DATABASE_URL=postgresql:///<postgres-username>
 SECRET_KEY=<number series, e.g. with a Python command secrets.token_hex(16)>
 ```
+
