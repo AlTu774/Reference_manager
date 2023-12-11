@@ -3,15 +3,15 @@ DROP TABLE IF EXISTS Users CASCADE;
 
 CREATE TABLE Books (
     id SERIAL PRIMARY KEY,
-    tag TEXT,
-    title TEXT,
-    author TEXT,
-    publish_year INT,
-    publisher TEXT
+    tag VARCHAR,
+    title VARCHAR(70),
+    author VARCHAR(70),
+    publish_year INT(4),
+    publisher VARCHAR
 );
 
 CREATE TABLE Users (
     id SERIAL PRIMARY KEY,
-    username TEXT,
-    password TEXT
+    username VARCHAR(20),
+    password VARCHAR
 );
