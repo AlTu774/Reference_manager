@@ -24,8 +24,14 @@ def add(service = source_service):
         author = request.form["author"]
         publish_year = request.form["publish_year"]
         publisher = request.form["publisher"]
-        service.insert_book(tag, title, author,
-                                   publish_year, publisher, books_repository)
+        service.insert_book(
+            tag,
+            title,
+            author,
+            publish_year,
+            publisher,
+            books_repository
+        )
 
     return render_template("add.html")
 
