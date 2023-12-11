@@ -12,7 +12,7 @@ class FakeSourceService:
             "publisher": "Otava"
         }]
 
-    def get_books(self):
+    def get_books(self, id):
         return self.books
 
 class TestBibtexService(unittest.TestCase):
@@ -21,6 +21,6 @@ class TestBibtexService(unittest.TestCase):
         self.bibtex_service = bibtex_service
 
     def test_bibtex_file_is_created_service(self):
-        self.bibtex_service.create_bibtex_file("test", self.service_stub)
+        self.bibtex_service.create_bibtex_file("test", self.service_stub, 0)
         self.assertEqual(os.path.exists('bibtex_files/test.bib'), True)
         os.remove('bibtex_files/test.bib')

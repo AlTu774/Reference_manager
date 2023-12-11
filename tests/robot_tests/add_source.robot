@@ -2,7 +2,7 @@
 Resource  resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
-Test Setup  Go And Check Add Page
+Test Setup  Register And Go Check Add Page
 #Test Teardown  Reset Application
 
 *** Test Cases ***
@@ -93,3 +93,26 @@ Set Publish Year
 Set Publisher
     [Arguments]  ${publisher}
     Input Text  publisher  ${publisher}
+
+Register And Go Check Add Page
+    Create User
+    Go And Check Add Page
+
+Create User
+    Go To Register Page
+    Write Username  user1
+    Write Password1  password1
+    Write Password2  password1
+    Click Button  Register
+
+Write Username
+    [Arguments]  ${username}
+    Input Text  username  ${username}
+
+Write Password1
+    [Arguments]  ${password}
+    Input Text  password  ${password}
+
+Write Password2
+    [Arguments]  ${password2}
+    Input Text  password2  ${password2}

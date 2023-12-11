@@ -26,5 +26,6 @@ def delete_all_books():
     db.session.commit()
 
 def delete_my_books(user_id):
-    sql = "DELETE FROM book WHERE user_id=:user_id"
+    sql = "DELETE FROM books WHERE user_id=:user_id"
     db.session.execute(text(sql), {"user_id":user_id})
+    db.session.commit()

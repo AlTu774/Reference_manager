@@ -10,7 +10,7 @@ class FakeBookRepository:
         {"tag":"K","author":"Matti Mäkelä","title":"Joku Kirja",
          "publisher":"Otava", "year":2000}]
 
-    def get_books(self):
+    def get_books(self, id):
         return self.books
 
     def insert_book(self, book):
@@ -34,7 +34,7 @@ class TestBibtex(unittest.TestCase):
         self.assertEqual(entry, correct_entry)
 
     def test_create_bibliographydata_correctly(self):
-        data = self.bibtex_s.create_bibtex_data(self.book_repo)
+        data = self.bibtex_s.create_bibtex_data(self.book_repo, 0)
         source1 = {"tag":"JK17","author":"Jaana Virtanen",
                    "title":"Jaanan Kirja","publisher":"Otava", "year":1968}
         source2 = {"tag":"K","author":"Matti Mäkelä",
