@@ -6,7 +6,7 @@ def insert_book(tag, title, author, publish_year, publisher, repository):
         title,
         author,
         publish_year,
-        publisher
+        publisher,
     )
     repository.insert_book(new_book)
 
