@@ -39,21 +39,20 @@ def tags():
     error = None
     if request.method == "GET":
         return render_template("tags.html")
-    
+
     if request.method == "POST":
         tag_name = request.form["tag_name"]
         user_id = request.form["user_id"]
 
         tag_tuples = tags_repository.get_tags_by_user_id(user_id)
         user_tags = [tag[1] for tag in tag_tuples]
-        
+
         if tag_name not in user_tags:
             tags_repository.insert_tag(user_id, tag_name)
-        else:
-            error = "Tag by this name already exists."
-            return render_template("tags.html", error=error)
+            return redirect("/")
 
-        return redirect("/")
+    error = "Tag by this name already exists."
+    return render_template("tags.html", error=error)
 
 
 @app.route("/list", methods=["GET"])
