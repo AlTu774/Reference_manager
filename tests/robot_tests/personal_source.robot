@@ -17,7 +17,7 @@ List Does Not Show Other User Sources
 
     Click Link  Log out
 
-    Create User And Go Add Page  user2
+    Create User And Go Add Page  user3
 
     Click Link  List all references
     List Page Should Be Open
