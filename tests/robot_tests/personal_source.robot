@@ -7,7 +7,7 @@ Suite Teardown  Close Browser
 *** Test Cases ***
 List Does Not Show Other User Sources
     Create User And Go Add Page  user2
-    Set Tag  JTKT1
+    Set Latex Key  JTKT1
     Set Title  Johdatus Tietojenkäsittelyyn
     Set Author  Matti Luukkainen
     Set Publish Year  2018

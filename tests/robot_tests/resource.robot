@@ -90,3 +90,7 @@ Set Publish Year
 Set Publisher
     [Arguments]  ${publisher}
     Input Text  publisher  ${publisher}
+
+Set Latex Key
+    [Arguments]  ${latex_key}
+    Input Text  latex_key  ${latex_key}
