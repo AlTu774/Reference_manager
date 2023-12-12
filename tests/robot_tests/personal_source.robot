@@ -2,7 +2,6 @@
 Resource  resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
-Test Setup  Register And Go Check Add Page
 #Test Teardown  Reset Application
 
 *** Test Cases ***
