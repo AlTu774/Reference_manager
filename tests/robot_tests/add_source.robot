@@ -70,30 +70,6 @@ Add Source With Invalid Year
 
 
 *** Keywords ***
-Go and Check Add Page
-    Go To Add Page
-    Add Page Should Be Open
-
-Set Latex Key
-    [Arguments]  ${latex_key}
-    Input Text  latex_key  ${latex_key}
-
-Set Title
-    [Arguments]  ${title}
-    Input Text  title  ${title}
-
-Set Author
-    [Arguments]  ${author}
-    Input Text  author  ${author}
-
-Set Publish Year
-    [Arguments]  ${publish_year}
-    Input Text  publish_year  ${publish_year}
-
-Set Publisher
-    [Arguments]  ${publisher}
-    Input Text  publisher  ${publisher}
-
 Register And Go Check Add Page
     Create User
     Go And Check Add Page
@@ -104,15 +80,3 @@ Create User
     Write Password1  password1
     Write Password2  password1
     Click Button  Register
-
-Write Username
-    [Arguments]  ${username}
-    Input Text  username  ${username}
-
-Write Password1
-    [Arguments]  ${password}
-    Input Text  password  ${password}
-
-Write Password2
-    [Arguments]  ${password2}
-    Input Text  password2  ${password2}

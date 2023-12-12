@@ -63,14 +63,3 @@ Create User And Go To Register Page
     Go To Logout Page
     Go To Register Page
 
-Write Username
-    [Arguments]  ${username}
-    Input Text  username  ${username}
-
-Write Password1
-    [Arguments]  ${password}
-    Input Text  password  ${password}
-
-Write Password2
-    [Arguments]  ${password2}
-    Input Text  password2  ${password2}

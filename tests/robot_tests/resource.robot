@@ -54,3 +54,43 @@ Index Page Should Be Open
 
 Register Page Should Be Open
     Title Should Be  Register
+
+Write Username
+    [Arguments]  ${username}
+    Input Text  username  ${username}
+
+Write Password1
+    [Arguments]  ${password}
+    Input Text  password  ${password}
+
+Write Password2
+    [Arguments]  ${password2}
+    Input Text  password2  ${password2}
+
+Go and Check Add Page
+    Go To Add Page
+    Add Page Should Be Open
+
+Set Tag
+    [Arguments]  ${tag}
+    Input Text  tag  ${tag}
+
+Set Title
+    [Arguments]  ${title}
+    Input Text  title  ${title}
+
+Set Author
+    [Arguments]  ${author}
+    Input Text  author  ${author}
+
+Set Publish Year
+    [Arguments]  ${publish_year}
+    Input Text  publish_year  ${publish_year}
+
+Set Publisher
+    [Arguments]  ${publisher}
+    Input Text  publisher  ${publisher}
+
+Set Latex Key
+    [Arguments]  ${latex_key}
+    Input Text  latex_key  ${latex_key}
