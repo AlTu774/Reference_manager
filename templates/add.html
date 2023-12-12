@@ -10,14 +10,15 @@
     Publishing year:<input type="text" name="publish_year" id="publish_year"
     maxlength="4" required pattern="^[0-9]*$" title="Please enter a valid year"><br>
     Publisher:<input type="text" name="publisher" id="publisher"
-    required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br>
-    <input type='submit' value='Submit'><br><br>
+    required pattern="\S(.*\S)?" title="Remove leading or trailing spaces"><br><br>
 
     <label for="tags">Select tag(s):</label><br>
     <select name="tags[]" multiple>
-        {% for tag in tags_list %}
-        <option value="{{tag.name}}">{{tag.name}}</option>
+        {% for tag in tag_list %}
+        <option value="{{tag.id}}">{{tag.tag_name}}</option>
         {% endfor %}
-    </select>
+    </select><br>
+    <p>Hold down the Ctrl or Command button to select multiple tags.</p>
+    <input type='submit' value='Submit'><br>
 </form>
 {% endblock %}
