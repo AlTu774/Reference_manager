@@ -36,13 +36,23 @@ def add(service = source_service):
 
 @app.route("/tags", methods=["GET", "POST"])
 def tags():
+    error = None
     if request.method == "GET":
         return render_template("tags.html")
     
     if request.method == "POST":
         tag_name = request.form["tag_name"]
         user_id = request.form["user_id"]
-        tags_repository.insert_tag(user_id, tag_name)
+
+        tag_tuples = tags_repository.get_tags_by_user_id(user_id)
+        user_tags = [tag[1] for tag in tag_tuples]
+        
+        if tag_name not in user_tags:
+            tags_repository.insert_tag(user_id, tag_name)
+        else:
+            error = "Tag by this name already exists."
+            return render_template("tags.html", error=error)
+
         return redirect("/")
 
 
