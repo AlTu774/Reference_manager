@@ -15,7 +15,7 @@ List Does Not Show Other User Sources
     Click Button  Submit
     Add Page Should Be Open
 
-    Click Link  Logout
+    Click Link  Log out
 
     Create User And Go Add Page  user2
 
