@@ -10,7 +10,7 @@ class FakeBookRepository:
         {"tag":"K","author":"Matti Mäkelä","title":"Joku Kirja",
          "publisher":"Otava", "year":2000}]
 
-    def get_books(self, id):
+    def get_books(self, uid):
         return self.books
 
     def insert_book(self, book):

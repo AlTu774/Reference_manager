@@ -6,10 +6,10 @@ class FakeBookRepository:
     def __init__(self):
         self.books = []
 
-    def get_my_books(self,  id):
+    def get_my_books(self, uid):
         return self.books
 
-    def insert_book(self, book, id):
+    def insert_book(self, book, uid):
         self.books.append(book)
         return book
 

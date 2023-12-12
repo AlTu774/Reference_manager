@@ -12,7 +12,7 @@ class FakeSourceService:
             "publisher": "Otava"
         }]
 
-    def get_books(self, id):
+    def get_books(self, uid):
         return self.books
 
 class TestBibtexService(unittest.TestCase):

@@ -1,6 +1,7 @@
 from entities.source import Source
 
-def insert_book(tag, title, author, publish_year, publisher, repository, user_id):
+def insert_book(tag, title, author, publish_year, publisher, repository,
+                user_id):
     new_book = Source(
         tag,
         title,

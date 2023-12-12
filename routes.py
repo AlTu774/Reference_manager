@@ -68,19 +68,13 @@ def login():
 
         login_check = users_repository.login(username, password)
         print(login_check)
-        if type(login_check) != str:
+        if not isinstance(login_check, str):
             session["username"] = username
             session["user_id"] = login_check
             return redirect("/")
 
     error = login_check
     return render_template("login.html", error=error)
-
-@app.route("/logout")
-def logout():
-    del session["username"]
-    return redirect("/")
-
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
@@ -111,5 +105,5 @@ def register():
 def logout():
     del session["username"]
     del session["user_id"]
-    
+
     return redirect("/")
