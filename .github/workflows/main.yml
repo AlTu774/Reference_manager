@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, robot_personal_sources]
+    branches: [main, robot_fix]
   pull_request:
     branches: [main]
 
@@ -57,4 +57,7 @@ jobs:
         run: poetry run flask run &
       - name: Run end-to-end tests with Robot Framework
         run: poetry run robot --loglevel TRACE tests
-
+      - uses: superfly/flyctl-actions/setup-flyctl@v1
+        if: ${{ github.event_name == 'push' }}
+      - run: poetry run flyctl deploy --remote-only
+        if: ${{ github.event_name == 'push' }}
