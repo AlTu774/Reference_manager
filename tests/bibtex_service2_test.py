@@ -11,6 +11,8 @@ class FakeBookRepository:
          "publisher":"Otava", "year":2000}]
 
     def get_books(self, uid):
+        if uid:
+            return self.books #For pylint
         return self.books
 
     def insert_book(self, book):

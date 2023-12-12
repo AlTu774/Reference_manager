@@ -13,6 +13,8 @@ class FakeSourceService:
         }]
 
     def get_books(self, uid):
+        if uid:
+            return self.books
         return self.books
 
 class TestBibtexService(unittest.TestCase):

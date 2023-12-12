@@ -7,10 +7,14 @@ class FakeBookRepository:
         self.books = []
 
     def get_my_books(self, uid):
+        if uid:
+            return self.books #For pylint
         return self.books
 
     def insert_book(self, book, uid):
         self.books.append(book)
+        if uid:
+            return book #For pylint
         return book
 
 class TestSourceService(unittest.TestCase):
