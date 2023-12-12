@@ -32,7 +32,7 @@ List Does Not Show Other User Sources
 Create User And Go Add Page
     [Arguments]  ${user}
     Go To Register Page
-    Write Username  ${username}
+    Write Username  ${user}
     Write Password1  password1
     Write Password2  password1
     Click Button  Register
