@@ -1,18 +1,18 @@
-DROP TABLE IF EXISTS Books CASCADE;
-DROP TABLE IF EXISTS Users CASCADE;
+DROP TABLE IF EXISTS books CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
 
-CREATE TABLE Users (
+CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username TEXT,
     password TEXT
 );
 
-CREATE TABLE Books (
+CREATE TABLE books (
     id SERIAL PRIMARY KEY,
     latex_key TEXT,
     title TEXT,
     author TEXT,
     publish_year INT,
-    user_id INT REFERENCES Users,
+    user_id INT REFERENCES users,
     publisher TEXT
 );
