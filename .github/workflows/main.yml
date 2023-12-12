@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, robot_fix]
+    branches: [main, robot_fix, tags]
   pull_request:
     branches: [main]
 
