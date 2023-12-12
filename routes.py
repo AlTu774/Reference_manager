@@ -4,6 +4,7 @@ from flask import (
 from app import app
 from repositories import books_repository
 from repositories import users_repository
+from repositories import tags_repository
 from services import source_service
 from services import bibtex_service
 
@@ -16,7 +17,8 @@ def index():
 @app.route("/add", methods=["GET", "POST"])
 def add(service = source_service):
     if request.method == "GET":
-        return render_template("add.html")
+        tag_list = tags_repository.get_tags_by_user_id(session["user_id"])
+        return render_template("add.html", tag_list=tag_list)
 
     if request.method == "POST":
         latex_key = request.form["latex_key"]
@@ -28,7 +30,9 @@ def add(service = source_service):
                                    publish_year, publisher, books_repository,
                                    session["user_id"])
 
-    return render_template("add.html")
+    tag_list = tags_repository.get_tags_by_user_id(session["user_id"])
+
+    return render_template("add.html", tag_list=tag_list)
 
 @app.route("/list", methods=["GET"])
 def list_sources():
@@ -67,7 +71,6 @@ def login():
         password = request.form["password"]
 
         login_check = users_repository.login(username, password)
-        print(login_check)
         if not isinstance(login_check, str):
             session["username"] = username
             session["user_id"] = login_check
