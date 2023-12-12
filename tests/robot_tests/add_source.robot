@@ -7,7 +7,7 @@ Test Setup  Register And Go Check Add Page
 
 *** Test Cases ***
 Add Source With Valid Fields
-    Set Tag  JTKT1
+    Set Latex Key  JTKT1
     Set Title  Johdatus Tietojenkäsittelyyn
     Set Author  Matti Luukkainen
     Set Publish Year  2018
@@ -25,7 +25,7 @@ Add Source With Valid Fields
     Page Should Contain  WSOY
 
 Add Source With Missing Title
-    Set Tag  JTKT1
+    Set Latex Key  JTKT1
     Set Author  Matti Luukkainen
     Set Publish Year  2018
     Set Publisher  WSOY
@@ -35,7 +35,7 @@ Add Source With Missing Title
     Element Should Be Visible  css=input#title:required:invalid
 
 Add Source With Missing Author
-    Set Tag  JTKT1
+    Set Latex Key  JTKT1
     Set Title  Johdatus Tietojenkäsittelyyn
     Set Publish Year  2018
     Set Publisher  WSOY
@@ -45,7 +45,7 @@ Add Source With Missing Author
     Element Should Be Visible  css=input#author:required:invalid
 
 Add Source With Whitespace
-    Set Tag  JTKT1
+    Set Latex Key  JTKT1
     Set Title  Johdatus Tietojenkäsittelyyn ${SPACE}
     Set Author  Matti Luukkainen
     Set Publish Year  2018
@@ -57,7 +57,7 @@ Add Source With Whitespace
     Should Be Equal  ${error}  Remove leading or trailing spaces
 
 Add Source With Invalid Year
-    Set Tag  JTKT1
+    Set Latex Key  JTKT1
     Set Title  Johdatus Tietojenkäsittelyyn
     Set Author  Matti Luukkainen
     Set Publish Year  kaksi
@@ -74,9 +74,9 @@ Go and Check Add Page
     Go To Add Page
     Add Page Should Be Open
 
-Set Tag
-    [Arguments]  ${tag}
-    Input Text  tag  ${tag}
+Set Latex Key
+    [Arguments]  ${latex_key}
+    Input Text  latex_key  ${latex_key}
 
 Set Title
     [Arguments]  ${title}
