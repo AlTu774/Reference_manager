@@ -34,6 +34,18 @@ def add(service = source_service):
 
     return render_template("add.html", tag_list=tag_list)
 
+@app.route("/tags", methods=["GET", "POST"])
+def tags():
+    if request.method == "GET":
+        return render_template("tags.html")
+    
+    if request.method == "POST":
+        tag_name = request.form["tag_name"]
+        user_id = request.form["user_id"]
+        tags_repository.insert_tag(user_id, tag_name)
+        return redirect("/")
+
+
 @app.route("/list", methods=["GET"])
 def list_sources():
     books = source_service.get_books(books_repository, session["user_id"])
