@@ -15,7 +15,7 @@ List Does Not Show Other User Sources
     Click Button  Submit
     Add Page Should Be Open
 
-    Click Loink  Logout
+    Click Link  Logout
 
     Create User And Go Add Page  user2
 
