@@ -5,7 +5,7 @@ from services import bibtex_service
 class FakeSourceService:
     def __init__(self):
         self.books = [{
-            "tag":"JK17",
+            "latex_key":"JK17",
             "title": "Jaanan Kirja",
             "author": "Jaana Virtanen",
             "publish_year": 1968,

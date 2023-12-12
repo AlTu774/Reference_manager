@@ -5,9 +5,9 @@ from services import bibtex_service
 class FakeBookRepository:
     def __init__(self):
         self.books = [{
-            "tag":"JK17","author":"Jaana Virtanen","title":"Jaanan Kirja",
+            "latex_key":"JK17","author":"Jaana Virtanen","title":"Jaanan Kirja",
             "publisher":"Otava", "year":1968},
-        {"tag":"K","author":"Matti Mäkelä","title":"Joku Kirja",
+        {"latex_key":"K","author":"Matti Mäkelä","title":"Joku Kirja",
          "publisher":"Otava", "year":2000}]
 
     def get_books(self, uid):
@@ -25,7 +25,7 @@ class TestBibtex(unittest.TestCase):
         self.bibtex_s = bibtex_service
 
     def test_create_entry_correctly(self):
-        source = {"tag":"JK17","author":"Jaana Virtanen",
+        source = {"latex_key":"JK17","author":"Jaana Virtanen",
                   "title":"Jaanan Kirja","publisher":"Otava", "year":1968}
         entry = self.bibtex_s.create_entry(source)
         correct_entry = Entry("book",[("author", "Jaana Virtanen"),
@@ -37,9 +37,9 @@ class TestBibtex(unittest.TestCase):
 
     def test_create_bibliographydata_correctly(self):
         data = self.bibtex_s.create_bibtex_data(self.book_repo, 0)
-        source1 = {"tag":"JK17","author":"Jaana Virtanen",
+        source1 = {"latex_key":"JK17","author":"Jaana Virtanen",
                    "title":"Jaanan Kirja","publisher":"Otava", "year":1968}
-        source2 = {"tag":"K","author":"Matti Mäkelä",
+        source2 = {"latex_key":"K","author":"Matti Mäkelä",
                    "title":"Joku Kirja","publisher":"Otava", "year":2000}
         entry1 = self.bibtex_s.create_entry(source1)
         entry2 = self.bibtex_s.create_entry(source2)

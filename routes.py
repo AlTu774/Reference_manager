@@ -19,12 +19,12 @@ def add(service = source_service):
         return render_template("add.html")
 
     if request.method == "POST":
-        tag = request.form["tag"]
+        latex_key = request.form["latex_key"]
         title = request.form["title"]
         author = request.form["author"]
         publish_year = request.form["publish_year"]
         publisher = request.form["publisher"]
-        service.insert_book(tag, title, author,
+        service.insert_book(latex_key, title, author,
                                    publish_year, publisher, books_repository,
                                    session["user_id"])
 

@@ -9,7 +9,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Books (
     id SERIAL PRIMARY KEY,
-    tag TEXT,
+    latex_key TEXT,
     title TEXT,
     author TEXT,
     publish_year INT,
