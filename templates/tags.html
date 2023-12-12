@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<title>New tag</title>
+<h2>Add a new tag to use with your references</h2>
+
+<form action="/tags" method="POST">
+    <input type="hidden" name="user_id" value="{{session.user_id}}">
+    Tag name: <input type="text" name="tag_name" id="tag_name"><br>
+    <input type="submit" value="Submit">
+
+</form>
+
+{% endblock %}
