@@ -4,7 +4,7 @@ Library  SeleniumLibrary
 
 *** Variables ***
 ${SERVER}  127.0.0.1:5000
-${DELAY}  0.3 seconds
+${DELAY}  0 seconds
 ${HOME_URL}  http://${SERVER}
 ${ADD_URL}  http://${SERVER}/add
 ${LIST_URL}  http://${SERVER}/list
@@ -21,8 +21,8 @@ ${DELETE_URL}  http://${SERVER}/reset_users
 # Headless option disables physical browser opening.
 Open And Configure Browser
     ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
-    #${options}  Evaluate  sys.modules['selenium.webdriver'].FirefoxOptions()  sys
-    #Call Method  ${options}  add_argument  --headless
+    ${options}  Evaluate  sys.modules['selenium.webdriver'].FirefoxOptions()  sys
+    Call Method  ${options}  add_argument  --headless
     Open Browser  browser=chrome  options=${options}
     Set Selenium Speed  ${DELAY}
 
