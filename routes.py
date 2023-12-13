@@ -73,7 +73,8 @@ def reset_users():
 
 @app.route("/bibtex", methods=["GET"])
 def create_bibtex_file(service = bibtex_service):
-    service.create_bibtex_file("references", source_service, books_repository, session["user_id"])
+    service.create_bibtex_file("references", source_service, books_repository,
+                               session["user_id"])
     return render_template("bibtex.html")
 
 @app.route("/download", methods=["GET"])
