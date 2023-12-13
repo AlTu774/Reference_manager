@@ -10,12 +10,13 @@
 <br>
 <body>
     {% for source in sources %}
-    <div class="flex-container">
-        <div>Title: {{ source.title }}</div>
-        <div>Author: {{ source.author }}</div>
-        <div>publish_year: {{ source.publish_year }}</div>
-        <div>Publisher: {{ source.publisher }}</div>
-    </div>
+    <ul class="flex-container">
+        <b>@{{ source.latex_key }}</b>
+        <li>Title: {{ source.title }}</li>
+        <li>Author: {{ source.author }}</li>
+        <li>publish_year: {{ source.publish_year }}</li>
+        <li>Publisher: {{ source.publisher }}</li>
+    </ul>
     {% endfor %}
 </body>
 {% for source in sources %}
