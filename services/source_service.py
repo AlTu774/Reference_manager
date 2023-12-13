@@ -20,3 +20,6 @@ def delete_all_books(repository):
 
 def delete_my_books(repository, user_id):
     repository.delete_my_books(user_id)
+
+def delete_book(repository, book_id):
+    repository.delete(book_id)

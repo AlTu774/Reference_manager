@@ -33,3 +33,8 @@ def delete_my_books(user_id):
     sql = "DELETE FROM books WHERE user_id=:user_id"
     db.session.execute(text(sql), {"user_id":user_id})
     db.session.commit()
+
+def delete_book(book_id):
+    sql = "DELETE FROM books WHERE id=:book_id"
+    db.session.execute(text(sql), {"book_id":book_id})
+    db.session.commit()
