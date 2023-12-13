@@ -14,8 +14,8 @@ CREATE TABLE books (
     latex_key TEXT,
     title TEXT,
     author TEXT,
-    publish_year INT,
-    user_id INT REFERENCES users,
+    publish_year INTEGER,
+    user_id INTEGER REFERENCES users ON DELETE CASCADE,
     publisher TEXT
 );
 
