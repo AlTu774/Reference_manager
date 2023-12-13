@@ -2,17 +2,20 @@
 Resource  resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
-Test Setup  Create User
+#Test Setup  
+#Test Teardown Reset Application
 
 *** Test Cases ***
 Add Valid Tag As User 
+    Delete All Users
+    Create User
     Click Link  Add tags
     Set Tag  Kandi
     Click Button  Submit
     Index Page Should Be Open
     skip
 
-Duplicate Tag Is Not Added
+Duplicate Tag Is Not Added  
     Click Link  Add tags
     Set Tag  Kandi
     Click Button  Submit
