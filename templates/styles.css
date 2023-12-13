@@ -1,9 +1,13 @@
-.flex-container {
+.flex-container ul {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
   }
 
-ul {
-    display: flex;
-    flex-direction: column;
-  }
+body {background-color: powderblue;}
+
+nav ul {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}

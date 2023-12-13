@@ -1,24 +1,28 @@
 {% extends 'layout.html' %}
 {% block content %}
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/templates/styles.css">
 </head>
+<style>
+    .flex-container{
+    display: flex;
+    flex-direction: column;
+  }
+</style>
 <title>List of references</title>
 <a href='/bibtex'>Create a bibtex file</a>
 <br>
 <a href='/reset'>Clear my references</a>
 <br>
-<body>
-    {% for source in sources %}
-    <ul class="flex-container">
-        <b>@{{ source.latex_key }}</b>
-        <li>Title: {{ source.title }}</li>
-        <li>Author: {{ source.author }}</li>
-        <li>publish_year: {{ source.publish_year }}</li>
-        <li>Publisher: {{ source.publisher }}</li>
-    </ul>
-    {% endfor %}
-</body>
+{% for source in sources %}
+<ul class = "flex-container">
+    <b>@{{ source.latex_key }}</b>
+    <li>Title: {{ source.title }}</li>
+    <li>Author: {{ source.author }}</li>
+    <li>publish_year: {{ source.publish_year }}</li>
+    <li>Publisher: {{ source.publisher }}</li>
+</ul>
+{% endfor %}
 {% for source in sources %}
 <b>@{{ source.latex_key }}</b>
 <ul>
