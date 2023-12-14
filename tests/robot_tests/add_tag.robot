@@ -30,6 +30,16 @@ Tag With Invalid Input Is Not Added
     Should Be Equal  ${error}  Special characters are not allowed
 
 Existing Tag Can Be Added To New Source
+    Click Link  Add references
+    Set Latex Key  AI101
+    Set Title  ChatGPT ja Kanditutkielmat
+    Set Author  Matti Luukkainen
+    Set Publish Year  2023
+    Set Publisher  Helsingin Yliopisto
+    Click Element  Kandi
+    Click Button  Submit
+    Add Page Should Be Open
+    # Todo: check that the added tag is visible on the reference
     skip
 
 Tag Is Visible On Source
