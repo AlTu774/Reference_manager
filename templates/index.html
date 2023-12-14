@@ -1,4 +1,12 @@
 {% extends 'layout.html' %}
 {% block content %}
 <title>Reference manager</title>
+<h1>Reference manager</h1>
+<body>
+    {% if session.username %}
+    You are logged in.
+    {% else %}
+    <a href="/login">Sign in</a> or <a href="/register">Register</a> to create/view references.
+    {% endif %}
+</body>
 {% endblock %}
