@@ -2,8 +2,6 @@
 Resource  resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
-#Test Setup  
-#Test Teardown Reset Application
 
 *** Test Cases ***
 Add Valid Tag As User 
