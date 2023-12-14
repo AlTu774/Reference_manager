@@ -4,35 +4,57 @@
     <link rel="stylesheet" href="/templates/styles.css">
 </head>
 <style>
-    .flex-container{
-    display: flex;
-    border: 1px solid black;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+    table {
+    table-layout: fixed;
+    width: 100%;
+    border: 3px solid black;
+    border-collapse: collapse;
+    }
+
+    tbody td {
+    text-align: center;
+    }
+    
+    th {
+    background-color: #333;
+    color: white;
+    }
+
+    td {
+    letter-spacing: 0.5px;
+    }
+    
+    tbody tr:nth-child(odd) {
+    background-color: #D3D3D3;
+    }
+    
+    tbody tr:nth-child(even) {
+    background-color: #E5E4E2;
+    }
 </style>
 <title>List of references</title>
 <a href='/bibtex'>Create a bibtex file</a>
 <br>
 <a href='/reset'>Clear my references</a>
 <br>
-{% for source in sources %}
-<ul class = "flex-container">
-    <b>@{{ source.latex_key }}</b>
-    <b><a href="/source/{{ source.id }}">Tag</a></b>
-    <li>Title: {{ source.title }}</li>
-    <li>Author: {{ source.author }}</li>
-    <li>Publish year: {{ source.publish_year }}</li>
-    <li>Publisher: {{ source.publisher }}</li>
-</ul>
-{% endfor %}
-{% for source in sources %}
-<b>@{{ source.latex_key }}</b>
-<ul>
-<li>Title: {{ source.title }} </li>
-<li>Author: {{ source.author }} </li>
-<li>publish_year: {{ source.publish_year }} </li>
-<li>Publisher: {{ source.publisher }} </li>
-</ul>
-{% endfor %}
+
+<table>
+    <tr>
+        <th>Latex key</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Publishing year</th>
+        <th>Publisher</th>
+    </tr>
+    <tbody>
+    {% for source in sources %}
+      <tr>
+        <td>@{{ source.latex_key }}</td>
+        <td>{{ source.title }}</td>
+        <td>{{ source.author }}</td>
+        <td>{{ source.publish_year }}</td>
+        <td>{{ source.publisher }}</td>
+      </tr>
+    {% endfor %}
+</table>
 {% endblock %}
