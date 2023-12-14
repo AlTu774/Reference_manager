@@ -15,7 +15,7 @@
     <label for="tags">Select tag(s):</label><br>
     <select name="tags[]" multiple>
         {% for tag in tag_list %}
-        <option value="{{tag.id}}">{{tag.tag_name}}</option>
+        <option name="{{tag.tag_name}}" value="{{tag.id}}">{{tag.tag_name}}</option>
         {% endfor %}
     </select><br>
     <p>Hold down the Ctrl or Command button to select multiple tags.</p>
