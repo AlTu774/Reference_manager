@@ -11,7 +11,6 @@ Add Valid Tag As User
     Set Tag  Kandi
     Click Button  Submit
     Index Page Should Be Open
-    skip
 
 Duplicate Tag Is Not Added  
     Click Link  Add tags
@@ -32,18 +31,17 @@ Tag With Invalid Input Is Not Added
 Existing Tag Can Be Added To New Source
     Click Link  Add references
     Set Latex Key  AI101
-    Set Title  ChatGPT ja Kanditutkielmat
+    Set Title  ChatGPT ja Maisteritutkielmat
     Set Author  Matti Luukkainen
     Set Publish Year  2023
     Set Publisher  Helsingin Yliopisto
     Click Element  Kandi
     Click Button  Submit
     Add Page Should Be Open
-    # Todo: check that the added tag is visible on the reference
-    skip
 
 Tag Is Visible On Source
-    skip
+    Go To List Page
+    Page Should Contain  Kandi
 
 *** Keywords ***
 Register And Go To Tag Page
