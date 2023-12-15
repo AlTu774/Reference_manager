@@ -43,6 +43,17 @@ Tag Is Visible On Source
     Go To List Page
     Page Should Contain  Kandi
 
+Empty Tag Is Displayed Correctly
+    Click Link  Add references
+    Set Latex Key  AI102
+    Set Title  ChatGPT ja Maisteritutkielmat: Tekoalyyn syventyminen
+    Set Author  Matti Luukkainen
+    Set Publish Year  2023
+    Set Publisher  Helsingin Yliopisto
+    Click Button  Submit
+    Go To List Page
+    Page Should Contain  No tags
+
 *** Keywords ***
 Register And Go To Tag Page
     Create User

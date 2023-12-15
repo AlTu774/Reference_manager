@@ -84,8 +84,8 @@
         <td>{{ source.publish_year }}</td>
         <td>{{ source.publisher }}</td>
         <td><span class="info"><i class="fa fa-info-circle"></i>
-          <span class="infotext">{{ tag_list[source.id] if source.id in
-             tag_list else 'No tags' }}</span></td>
+          <span class="infotext">{{ tag_list[source.id] if tag_list[source.id]
+            else 'No tags' }}</span></td>
       </tr>
     {% endfor %}
 </table>
