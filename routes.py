@@ -29,8 +29,8 @@ def add(service = source_service):
         book_id = service.insert_book(latex_key, title, author,
                                    publish_year, publisher, books_repository,
                                    session["user_id"])
-        tags = request.form.getlist("tags[]")
-        for tag in tags:
+        book_tags = request.form.getlist("tags[]")
+        for tag in book_tags:
             tags_repository.tag_book(tag, book_id)
         tag_list = tags_repository.get_tags_by_user_id(session["user_id"])
 
@@ -65,7 +65,7 @@ def list_sources():
         book_tags = tags_repository.get_tags_by_book_id(i[0])
         tag_list[i[0]] = ', '.join(tag[2] for tag in book_tags)
 
-    
+
     return render_template("list.html", sources=books, tag_list=tag_list)
 
 @app.route("/reset", methods=["GET"])
