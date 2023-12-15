@@ -22,7 +22,7 @@ def get_tags_by_user_id(user_id):
     return taglist
 
 def get_tags_by_book_id(book_id):
-    sql = """SELECT id AS tagging_id, tags.id, tag_name
+    sql = """SELECT book_id AS tagging_id, tags.id, tag_name
         FROM tagged_books INNER JOIN tags ON tagged_books.tag_id=tags.id
         WHERE tagged_books.book_id=:book_id"""
 

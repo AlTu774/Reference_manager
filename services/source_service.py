@@ -9,7 +9,7 @@ def insert_book(latex_key, title, author, publish_year, publisher, repository,
         publish_year,
         publisher
     )
-    repository.insert_book(new_book, user_id)
+    return repository.insert_book(new_book, user_id)
 
 def get_books(repository, user_id):
     books = repository.get_my_books(user_id)
