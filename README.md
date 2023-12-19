@@ -8,6 +8,9 @@
 Link to the product backlog (and sprint backlog):
 [Product backlog/Sprint backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/mseppi_ad_helsinki_fi/EQIaYfH__HREsC9fgOU2kWkBzfAX5RP9uAoUaCY_Hi62qg)
 
+## Miniproject report
+[Project report](https://github.com/AlTu774/Reference_manager/blob/main/report.md)
+
 ## Definition of done
 - Acceptance criteria met
 - Integrated into the production version
