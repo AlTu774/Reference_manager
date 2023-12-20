@@ -7,7 +7,7 @@ def insert_book(latex_key, title, author, publish_year, publisher, repository,
         title,
         author,
         publish_year,
-        publisher
+        publisher,
     )
     return repository.insert_book(new_book, user_id)
 
